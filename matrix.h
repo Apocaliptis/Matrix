@@ -2,7 +2,7 @@
 #define MATRIX_H
 
 typedef enum
-{
+{               /*Control signal is '0'*/
 	WHITE	= ((u8)0x0),	/*0b 000*/
 	PINK	= ((u8)0x1),	/*0b 001*/
 	SKY	= ((u8)0x2),	/*0b 010*/

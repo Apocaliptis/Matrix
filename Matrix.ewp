@@ -1706,21 +1706,21 @@
         </option>
         <option>
           <name>IccOptLevel</name>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>IccOptStrategy</name>
           <version>0</version>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccOptLevelSlave</name>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>IccOptAllowList</name>
           <version>0</version>
-          <state>000000</state>
+          <state>111111</state>
         </option>
         <option>
           <name>IccGenerateDebugInfo</name>
@@ -2167,7 +2167,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>lnk0t.icf</state>
+          <state>$TOOLKIT_DIR$\config\lnkstm8s105c6.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -2231,7 +2231,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state></state>
+          <state>__iar_program_start</state>
         </option>
         <option>
           <name>DoFill</name>

@@ -1,6 +1,5 @@
 #include "stm8s.h"
 #include "matrix.h"
-#include "math.h"
 
 /*   CN2
 PIN_7: GRND
@@ -22,7 +21,12 @@ void lightMYled (u8 x, u8 y, u8 colour);
   
 void main( void )
 {
-  
+  CLK_DeInit();
+    
+    /* Clock divider to HSI/1 */
+  CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+    
+ 
   GPIO_Configuration();
   
   initMatrix ();
@@ -33,11 +37,15 @@ void main( void )
     for (b = 0; b <= 7; ++b)
       lightMYled(b, b+1, WHITE);*/
     
-    u8 i;
+    //putINmatrix(0xFBFDFEFB);
+    //putINmatrix(0xFBFDFEF7);
+    //putINmatrix(0xFBFDFEEF);
+    
+    /*u8 i;
     u8 j;
     for (i = 0; i < 9; ++i)
       for(j = 0; j < 9; ++j)
-        lightMYled (j + 1, 8 - i, WHITE + i);
+        lightMYled (j + 1, 8 - i, WHITE + i);*/
     
     //lightMYled (5, 8, YELLOW);
     /*u8 i;
@@ -125,22 +133,22 @@ void lightMYled (u8 x, u8 y, u8 colour){
   
     /*set up anod output in coord. y*/
   u8 anod = 0xFF;
-  anod &= ~(u8)pow(2, x - 1);
+  anod &= ~( 1 << (x - 1));
   
     /*set up green colour*/
   u32 greenColour = 0xFF;
   if ((colour &1) == 0)
-    greenColour &= ~(u8)pow(2, y - 1);
+    greenColour &= ~(1 << (y - 1));
   
     /*set up red colour*/
   u32 redColour = 0xFF;
   if (((colour >> 1) &1) == 0)
-    redColour &= ~(u8)pow(2, y - 1);
+    redColour &= ~(1 << (y - 1));
   
   /*set up blue colour*/
   u32 blueColour = 0xFF;
   if (((colour >> 2) &1) == 0)
-    blueColour &= ~(u8)pow(2, y - 1);
+    blueColour &= ~(1 << (y - 1));
   
   
   u32 full = 0;
