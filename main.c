@@ -29,9 +29,15 @@ void main( void )
   
   while (1)
   {
+    /*u8 a = 0, b = 0;
+    for (b = 0; b <= 7; ++b)
+      lightMYled(b, b+1, WHITE);*/
+    
     u8 i;
+    u8 j;
     for (i = 0; i < 9; ++i)
-      lightMYled (i + 1, 8 - i, WHITE + i);
+      for(j = 0; j < 9; ++j)
+        lightMYled (j + 1, 8 - i, WHITE + i);
     
     //lightMYled (5, 8, YELLOW);
     /*u8 i;
