@@ -24,12 +24,14 @@ void main( void )
   CLK_DeInit();
     
     /* Clock divider to HSI/1 */
-  CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+  CLK_HSIPrescalerConfig(CLK_PRESCALER_CPUDIV128);
     
  
   GPIO_Configuration();
   
   initMatrix ();
+  
+  //putINmatrix(0xFFFF00FD);
   
   while (1)
   {
@@ -37,23 +39,26 @@ void main( void )
     for (b = 0; b <= 7; ++b)
       lightMYled(b, b+1, WHITE);*/
     
-    //putINmatrix(0xFBFDFEFB);
+    //putINmatrix(0xFFFF00FD);
     //putINmatrix(0xFBFDFEF7);
     //putINmatrix(0xFBFDFEEF);
     
-    /*u8 i;
+    u8 i;
     u8 j;
     for (i = 0; i < 9; ++i)
       for(j = 0; j < 9; ++j)
-        lightMYled (j + 1, 8 - i, WHITE + i);*/
+        lightMYled (j + 1, 8 - i, WHITE + i);
     
     //lightMYled (5, 8, YELLOW);
     /*u8 i;
-    for (i = 1; i < 9; ++i){
-      lightMYled(4, i, GREEN);
-      lightMYled(5, i, GREEN);
+    for (i = 1; i < 6; ++i){
+      lightMYled(4, i, YELLOW);
+      lightMYled(5, i, YELLOW);
+    }
+     for (i = 7; i < 9; ++i){
+      lightMYled(4, i, BLUE);
+      lightMYled(5, i, BLUE);
     }*/
-        
   }
   
 }
